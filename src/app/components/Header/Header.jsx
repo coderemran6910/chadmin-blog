@@ -1,3 +1,4 @@
+import AuthContextProvider from "../../../../lib/contexts/AuthContexts";
 import LoginButton from "./LoginButton";
 
 const Header = () => {
@@ -73,7 +74,10 @@ const Header = () => {
 
       {/* Login Button */}
       <div className="navbar-end">
-        <LoginButton />
+        <AuthContextProvider>
+             <LoginButton />
+        </AuthContextProvider>
+       
       </div>
     </div>
   );
