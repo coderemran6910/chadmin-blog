@@ -12,7 +12,7 @@ const LoginButton = () => {
     return <span> Loading... </span>
   }
   if(user){
-    return <button className="btn btn-active btn-secondary">Log out </button>
+    return <button onClick={()=> handleSignOut()} className="btn btn-active btn-secondary">Log out </button>
 
   }
 
