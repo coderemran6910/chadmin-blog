@@ -8,6 +8,14 @@ const LoginButton = () => {
 
   const {user, isLoading, error, handleSigninWithGoogle, handleSignOut } = useAuth()
 
+  if(isLoading){
+    return <span> Loading... </span>
+  }
+  if(user){
+    return <button className="btn btn-active btn-secondary">Log out </button>
+
+  }
+
 
     return (
        <button onClick={()=>{
