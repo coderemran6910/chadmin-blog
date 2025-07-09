@@ -12,7 +12,17 @@ const LoginButton = () => {
     return <span> Loading... </span>
   }
   if(user){
-    return <button onClick={()=> handleSignOut()} className="btn btn-active btn-secondary">Log out </button>
+    return <div className="flex gap-4 items-center ">
+      <button onClick={()=> handleSignOut()} className="btn btn-active btn-secondary">Log out </button>
+      <div className="avatar">
+  <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+    <img src={user?.photoURL} />
+  </div>
+</div>
+      
+    </div>
+
+    
 
   }
 
