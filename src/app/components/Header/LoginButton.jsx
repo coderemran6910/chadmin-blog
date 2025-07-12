@@ -1,25 +1,33 @@
 "use client"
 
+import Link from "next/link";
 import { useAuth } from "../../../../lib/contexts/AuthContexts";
-
 
 
 const LoginButton = () => {
 
   const {user, isLoading, error, handleSigninWithGoogle, handleSignOut } = useAuth()
-
+console.log(user)
   if(isLoading){
     return <span> Loading... </span>
   }
   if(user){
-    return <div className="flex gap-4 items-center ">
-      <button onClick={()=> handleSignOut()} className="btn btn-active btn-secondary">Log out </button>
-      <div className="avatar">
-  <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-    <img src={user?.photoURL} />
-  </div>
-</div>
-      
+    return <div className="flex gap-4 items-center   ">
+      <button onClick={()=> handleSignOut()} className="btn btn-active btn-secondary"> Log out </button>
+       <Link href={"/admin"}>
+      <div className=" flex gap-4 items-center border-2 border-blue-500 bg-blue-200 rounded-lg p-2  ">
+        <div className="avatar ">
+        <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+          <img src={user?.photoURL} />
+        </div>
+      </div>
+
+        <div className=" ">
+        <p className=" font-extrabold  ">{user.displayName}</p>
+        <p>{user.email}</p>
+        </div>   
+      </div>
+      </Link>
     </div>
 
     
